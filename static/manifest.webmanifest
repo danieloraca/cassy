@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "Cassy Chat",
+  "short_name": "Cassy",
+  "description": "A small, self-hosted chat running on a Raspberry Pi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#e8eee9",
+  "theme_color": "#246944",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

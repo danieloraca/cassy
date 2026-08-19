@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    container_name: cassy
+    init: true
+    ports:
+      - "8944:8944"
+    environment:
+      PORT: 8944
+      DATABASE_PATH: /data/cassy.sqlite3
+      VAPID_PRIVATE_KEY_PATH: /run/secrets/vapid_private
+      VAPID_SUBJECT: mailto:admin@cassy.local
+      RUST_LOG: cassy=info,tower_http=info
+    volumes:
+      - cassy-data:/data
+    secrets:
+      - vapid_private
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 1.0
+
+volumes:
+  cassy-data:
+
+secrets:
+  vapid_private:
+    file: ./.secrets/vapid_private.pem
